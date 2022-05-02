@@ -1,14 +1,26 @@
 ﻿int fila, columna;
 fila = columna = 3;
-int[,] matriz = new int[3,3]{ { 200, 30, 3 } , { 33, 54, 51 } , { 32, 32, 2 } };
+int[,] matriz = new int[3,3]{ { 200, 30, 3 } , { 33, 999, 51 } , { 32, 32, 2 } };
+int[] vec = new int[10] {1,2,3,4,5,6,7,8,9,10};
+int dato;
 Console.WriteLine("el maximo elemento de la matriz es: " + maxMatriz(matriz,fila,columna));
 Console.WriteLine("el minimo elemento de la matriz es: " + minMatriz(matriz, fila, columna));
 Console.WriteLine("el promedio de la matriz es: " + promedioMatriz(matriz, fila, columna));
 Console.WriteLine("la suma de todos los elementos de la matriz es: " + sumaMatriz(matriz,fila,columna));
-piramideInvertida();
-dosTriangulos();
+//piramideInvertida();
+//dosTriangulos();
+dato = 0;
+//Console.WriteLine(consultaVector(vec,dato));
 
-
+bool consultaVector(int[] vec,int dato)
+{
+    int i = 0;
+    while (i<vec.Length && vec[i]!=dato)
+    {
+        i++;
+    }
+    return i < vec.Length;
+}
 
 int maxMatriz(int [,]matriz,int f,int c)
 {
@@ -38,6 +50,20 @@ int minMatriz(int[,] matriz, int f, int c)
     return min;
 }
 
+double sumaMatriz(int[,] matriz, int f, int c)
+{
+    int i, j, acum;
+    acum = 0;
+    for (i = 0; i < f; i++)
+    {
+        for (j = 0; j < c; j++)
+        {
+            acum += matriz[i, j];
+        }
+    }
+    return acum;
+}
+
 double promedioMatriz(int[,] matriz, int f, int c)
 {
     int i, j, acum;
@@ -55,8 +81,11 @@ double promedioMatriz(int[,] matriz, int f, int c)
 void piramideInvertida()
 {
     int n,i,j,h;
-    Console.WriteLine("ingrese un numero positivo");
-    n = int.Parse(Console.ReadLine());
+    do
+    {
+        Console.WriteLine("ingrese un numero positivo");
+        n = int.Parse(Console.ReadLine());
+    } while (n<0);
     for (i=n;i>0;i--) //cantidad ingresada 
     {
         for (h=n-i;h>0;h--)
@@ -92,18 +121,4 @@ void dosTriangulos()
         }
         Console.WriteLine();
     }
-}
-
-double sumaMatriz(int[,] matriz, int f, int c)
-{
-    int i, j, acum;
-    acum = 0;
-    for (i = 0; i < f; i++)
-    {
-        for (j = 0; j < c; j++)
-        {
-            acum += matriz[i, j];
-        }
-    }
-    return acum;
 }
