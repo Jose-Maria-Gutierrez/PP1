@@ -1,9 +1,10 @@
 ﻿int fila, columna;
 fila = columna = 3;
 int[,] matriz = new int[3,3]{ { 200, 30, 3 } , { 33, 54, 51 } , { 32, 32, 2 } };
-Console.WriteLine("el maximo elemento de la matriz es: " + maxMatriz(matriz,fila,columna));
-Console.WriteLine("el minimo elemento de la matriz es: " + minMatriz(matriz, fila, columna));
-Console.WriteLine("el promedio de la matriz es: " + promedioMatriz(matriz, fila, columna));
+//Console.WriteLine("el maximo elemento de la matriz es: " + maxMatriz(matriz,fila,columna));
+//Console.WriteLine("el minimo elemento de la matriz es: " + minMatriz(matriz, fila, columna));
+//Console.WriteLine("el promedio de la matriz es: " + promedioMatriz(matriz, fila, columna));
+piramideInvertida();
 
 int maxMatriz(int [,]matriz,int f,int c)
 {
@@ -45,4 +46,24 @@ double promedioMatriz(int[,] matriz, int f, int c)
         }
     }
     return (double)acum / (f*c);
+}
+
+void piramideInvertida()
+{
+    int n,i,j,h;
+    Console.WriteLine("ingrese un numero positivo");
+    n = int.Parse(Console.ReadLine());
+    for (i=n;i>0;i--) //cantidad ingresada 
+    {
+        for (h=n-i;h>0;h--)
+        {
+            Console.Write(" ");
+        }
+        for (j=1+(i-1)*2;j>0;j--) //formula para cantidad de "ladrillos"
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();   
+    }
+
 }
