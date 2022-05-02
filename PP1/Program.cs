@@ -4,8 +4,10 @@ int[,] matriz = new int[3,3]{ { 200, 30, 3 } , { 33, 54, 51 } , { 32, 32, 2 } };
 Console.WriteLine("el maximo elemento de la matriz es: " + maxMatriz(matriz,fila,columna));
 Console.WriteLine("el minimo elemento de la matriz es: " + minMatriz(matriz, fila, columna));
 Console.WriteLine("el promedio de la matriz es: " + promedioMatriz(matriz, fila, columna));
+Console.WriteLine("la suma de todos los elementos de la matriz es: " + sumaMatriz(matriz,fila,columna));
 piramideInvertida();
 dosTriangulos();
+
 
 
 int maxMatriz(int [,]matriz,int f,int c)
@@ -90,4 +92,18 @@ void dosTriangulos()
         }
         Console.WriteLine();
     }
+}
+
+double sumaMatriz(int[,] matriz, int f, int c)
+{
+    int i, j, acum;
+    acum = 0;
+    for (i = 0; i < f; i++)
+    {
+        for (j = 0; j < c; j++)
+        {
+            acum += matriz[i, j];
+        }
+    }
+    return acum;
 }
