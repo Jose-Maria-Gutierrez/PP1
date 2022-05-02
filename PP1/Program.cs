@@ -1,10 +1,12 @@
 ﻿int fila, columna;
 fila = columna = 3;
 int[,] matriz = new int[3,3]{ { 200, 30, 3 } , { 33, 54, 51 } , { 32, 32, 2 } };
-//Console.WriteLine("el maximo elemento de la matriz es: " + maxMatriz(matriz,fila,columna));
-//Console.WriteLine("el minimo elemento de la matriz es: " + minMatriz(matriz, fila, columna));
-//Console.WriteLine("el promedio de la matriz es: " + promedioMatriz(matriz, fila, columna));
+Console.WriteLine("el maximo elemento de la matriz es: " + maxMatriz(matriz,fila,columna));
+Console.WriteLine("el minimo elemento de la matriz es: " + minMatriz(matriz, fila, columna));
+Console.WriteLine("el promedio de la matriz es: " + promedioMatriz(matriz, fila, columna));
 piramideInvertida();
+dosTriangulos();
+
 
 int maxMatriz(int [,]matriz,int f,int c)
 {
@@ -66,4 +68,26 @@ void piramideInvertida()
         Console.WriteLine();   
     }
 
+}
+
+void dosTriangulos()
+{
+    Console.WriteLine("Ingrese un 5");
+    int a = int.Parse(Console.ReadLine());
+    for (int y = 1; y <= a; y++)
+    {
+        for (int x = 1; x <= a - y; x++)
+        {
+            Console.Write("*");
+        }
+        for (int x = 1; x <= y; x++)
+        {
+            Console.Write(" ");
+        }
+        for (int x = 1; x <= y - 1; x++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+    }
 }
